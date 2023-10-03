@@ -14,6 +14,7 @@ public class Main {
         System.out.printf("Введите пример: ");
         Scanner Prim= new Scanner(System.in);
         String Str=Prim.nextLine();
+        
         //*****Удаление пробела********
         int indSpace= Str.indexOf((char)32);
         if (indSpace!=-1) {
@@ -24,8 +25,9 @@ public class Main {
             }
         }
         //********************************
+        
         int LenStr=Str.length();
-        if(LenStr<3 | LenStr>11) throw new IncorrectDataException("Введено некорректное количества данных");
+        if(LenStr<3 | LenStr>9) throw new IncorrectDataException("Введено некорректное количества данных");
 
         int indPlus= Str.indexOf((char) 43); //Проверяем есть ли +
         int indMin=Str.indexOf((char) 45);   //Проверяем есть ли -
@@ -56,7 +58,7 @@ public class Main {
         String StNumB = Str.substring(Pos+1, LenStr); //Значение В в строковом типе
 
         String[] RimNumDes = {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC","C"};
-        String[] RimNumEd = {"","I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"}; //"X","XI","XII","XIII","XIV","XV","XVI","XVII","XVIII","XIX","XX"};
+        String[] RimNumEd = {"","I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"}; 
         String[] RimNumArr= new String[100];
         RimNumArr[99]="C";
         String [] AraNum =new String[10];
