@@ -1,5 +1,3 @@
-import java.io.IOException;
-import java.nio.file.attribute.PosixFileAttributes;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws IncorrectDataException {
@@ -9,25 +7,32 @@ public class Main {
         int ZnachB=0;
         int Rezult=0;
         int a=9;
-
         boolean Rim=false;
         boolean Ara=false;
-
         String Z="";
 
         System.out.printf("Введите пример: ");
         Scanner Prim= new Scanner(System.in);
         String Str=Prim.nextLine();
+        //*****Удаление пробела********
+        int indSpace= Str.indexOf((char)32);
+        if (indSpace!=-1) {
+            String[] Str2 = Str.split(" ");
+            Str="";
+            for (int i=0;i<Str2.length;i++){
+                Str=Str+Str2[i];
+            }
+        }
+        //********************************
         int LenStr=Str.length();
-        if(LenStr<3 | LenStr>9) throw new IncorrectDataException("Введено некорректное количества данных");
-        char[] Simb = Str.toCharArray();
+        if(LenStr<3 | LenStr>11) throw new IncorrectDataException("Введено некорректное количества данных");
 
         int indPlus= Str.indexOf((char) 43); //Проверяем есть ли +
         int indMin=Str.indexOf((char) 45);   //Проверяем есть ли -
         int indMult=Str.indexOf((char) 42);  //Проверяем есть ли *
         int indDel=Str.indexOf((char) 47);   //Проверяем есть ли /
 
-//Проверяем есть ли знак
+        //Проверяем есть ли знак
         if (indPlus==-1 & indMin==-1 & indMult==-1 & indDel==-1) throw new IncorrectDataException("Отсутствует знак выражения");
         if (indPlus != -1){
             Pos=indPlus;
