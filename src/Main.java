@@ -1,15 +1,22 @@
 import java.util.Scanner;
 
 public class Main {
-String Str="";//null;
+
     public static void main(String[] args) throws IncorrectDataException {
+        Request("Введите пример: ");
 
+    }
 
-        System.out.printf("Введите пример: ");
+    public static void Request(String Req) throws IncorrectDataException {
+
+        System.out.printf(Req);
         Scanner Prim = new Scanner(System.in);
         String StrIn = Prim.nextLine();
         System.out.println(Calc(StrIn));
+        Question ("Продолжить работу? (ДА-Y / Нет-N) - ");
+
     }
+
 
     public static String Calc(String Str) throws IncorrectDataException {
 
@@ -66,6 +73,8 @@ String Str="";//null;
         String StNumA = Str.substring(0, Pos); //Значение А в строковом типе
         String StNumB = Str.substring(Pos + 1, LenStr); //Значение В в строковом типе
 
+        if (StNumB.equals("0")) throw new IncorrectDataException("Деление на 0");
+
         String[] RimNumDes = {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC", "C"};
         String[] RimNumEd = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
         String[] RimNumArr = new String[100];
@@ -84,7 +93,6 @@ String Str="";//null;
             for (int j = 0; j <= 9; j++) {
                 RimNumArr[a] = RimNumDes[i] + RimNumEd[j];
                 a++;
-
             }
         }
         for (int i = 0; i <= 9; i++) {
@@ -148,5 +156,31 @@ String Str="";//null;
                 break;
         }
         return StrRez;
+
     }
+    public static void Question (String Ques) throws IncorrectDataException {
+        System.out.printf(Ques);
+        Scanner Prim = new Scanner(System.in);
+        String Quest = Prim.nextLine();
+
+        switch (Quest) {
+            case "Y":
+                Request("Введите пример: ");
+                break;
+            case "y":
+                Request("Введите пример: ");
+                break;
+            case "N":
+                System.out.printf("Работа завершена.");
+                return;
+
+            case "n":
+                System.out.printf("Работа завершена.");
+                return;
+            default:
+                System.out.printf("Неправильный ввод"+"\n");
+                Question ("Продолжить работу? (ДА-Y Нет-N)");
+
+        }
+}
 }
