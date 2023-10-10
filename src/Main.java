@@ -29,7 +29,7 @@ public class Main {
         boolean Ara = false;
         String Z = "";
         String StrRez = "";
-        
+
 
         //*****Удаление пробела********
         int indSpace = Str.indexOf((char) 32);
@@ -198,7 +198,7 @@ public class Main {
                 return;
             default:
                 System.out.printf("Неправильный ввод"+"\n");
-                Question ("Продолжить работу? (ДА-Y Нет-N)");
+                Question ("Продолжить работу? (ДА-Y Нет-N) - ");
 
         }
 }
