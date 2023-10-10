@@ -29,6 +29,7 @@ public class Main {
         boolean Ara = false;
         String Z = "";
         String StrRez = "";
+        
 
         //*****Удаление пробела********
         int indSpace = Str.indexOf((char) 32);
@@ -71,7 +72,25 @@ public class Main {
         }
 
         String StNumA = Str.substring(0, Pos); //Значение А в строковом типе
+        char[] SymbolsA = StNumA.toCharArray();
+        StNumA="";
+        for (int i = 0; i < SymbolsA.length; i++) {
+            if(Character.isUpperCase(SymbolsA[i]) || Character.isLowerCase(SymbolsA[i])) {
+                String SymbUp = String.valueOf(SymbolsA[i]).toUpperCase();
+                StNumA = StNumA + SymbUp;
+            }else StNumA = StNumA + SymbolsA[i];
+        }
+
         String StNumB = Str.substring(Pos + 1, LenStr); //Значение В в строковом типе
+
+        char[] SymbolsB = StNumB.toCharArray();
+        StNumB="";
+        for (int i = 0; i < SymbolsB.length; i++) {
+            if(Character.isUpperCase(SymbolsB[i]) || Character.isLowerCase(SymbolsB[i])) {
+                String SymbUp = String.valueOf(SymbolsB[i]).toUpperCase();
+                StNumB = StNumB + SymbUp;
+            }else StNumB = StNumB + SymbolsB[i];
+        }
 
         if ( Z.equals("/") & StNumB.equals("0")) throw new IncorrectDataException("Деление на 0");
 
