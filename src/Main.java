@@ -73,7 +73,7 @@ public class Main {
         String StNumA = Str.substring(0, Pos); //Значение А в строковом типе
         String StNumB = Str.substring(Pos + 1, LenStr); //Значение В в строковом типе
 
-        if (StNumB.equals("0")) throw new IncorrectDataException("Деление на 0");
+        if ( Z.equals("/") & StNumB.equals("0")) throw new IncorrectDataException("Деление на 0");
 
         String[] RimNumDes = {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC", "C"};
         String[] RimNumEd = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
